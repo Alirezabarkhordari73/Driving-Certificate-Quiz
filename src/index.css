@@ -1,13 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    direction: rtl;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c9c9c9;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+  transition: all 0.6s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #213879;
+  transition: all 0.6s ease-in-out;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer components {
+  .Header-Items-Hover {
+    color : #335cca;
+    transition: .2s linear;
+  }
+  .Background-Image{
+    background: url("./assets/Images/Bg-Image2.jpg");
+    background-attachment: fixed, scroll;
+    background-repeat: no-repeat, repeat-y;
+    object-fit: cover;
+  }
+  .Correct-Answer{
+    color: #55ac4d;
+  }
+  .InCorrect-Answer{
+    color: #d13a3a;
+  }
+  .Disable-Answers{
+    pointer-events: none;
+  }
+  .one {
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+  }
+  .fade-in {
+    opacity: 0;
+    /* make things invisible upon start */
+    -webkit-animation: fadeIn ease-in 1;
+    /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+  }
+  .Next-Btn{
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: #57b643;
+    border-radius: 5px;
+  }
+  .Next-Btn-Disable{
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: rgb(172, 172, 172);
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .Transform-Animation{
+    animation-name: transformic;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes transformic{
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+
+
+
